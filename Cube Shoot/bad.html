@@ -1,0 +1,90 @@
+<title>Suspension Zone</title>
+<link rel="icon" href="icons/cubelogo.png" type="image/png"/>
+<link rel="shortcut icon" href="icons/cubelogo.png" type="image/png"/> 
+<body style="line-height: 2em">
+    <h1 style="font-weight: bolder; color: yellow;background: red;">DON'T PANIC!!!</h1>
+    You must be wondering why you're here right?<br>
+    I'll tell you why:<br>
+    You clicked "No" when you were asked to play again! (There is a 1 in 20 chance of this happening when "No" is clicked)<br>
+    <b>YOU WILL NEVER ESCAPE CUBESHOOT!!!</b><br>
+    I bet you must also feel bored at the fact that your FAVORITE game is now unavailable to you at this moment right?<br>
+    Never fear!<br>
+    I am a forgiving lord.<br>
+    Instead of Cube Shoot, would you like to try some Reddit 50/50?<br>
+    Or rather: Cube Shoot 50/50?<br>
+    <b>HAHHAHAHAH!!!</b>
+    
+    <div id="links">
+        <a href="https://bit.ly/34OOg9s">Cute Fluffy Panda or You Are An Idiot</a>
+        <button onclick="tryagain()" style="margin-left: 10px">Try Another?</button>
+    </div>
+    
+    Now you are very.....<br>
+
+    um...<br>
+
+    defeated?<br>
+
+    i really don't know...<br>
+
+    Here's something else you can do!<br>
+
+    -Think about whether this game is "Cube Shoot" or "Cubeshoot"<br>
+
+    maybe it's even "CubeShoot"<br>
+
+    Who Knows!?<br>
+    
+    The real question is: How do I get out of here?<br>
+    -The answer is simple: Wait 5 minutes to repent your sins.<br>
+    <h1 style="font-weight: bolder; color: yellow;background: red;" id="timeleft"></h1>
+    Until Then, you can to Cube Shoot 50/50, wonder about its name, or watch this ever-increasing mass of dots
+    <div style="display: inline; word-wrap: break-all" id="dots"></div>
+    <script>
+        var timeleft = localStorage.getItem("timeleft");
+        if(timeleft==0||timeleft==null){
+            console.log("hi");
+            window.location.href="index.html";
+        }
+        var minutes = Math.floor(timeleft/60);
+        var seconds = timeleft-Math.floor(timeleft/60)*60;
+        if(seconds/10<1){
+            document.getElementById("timeleft").innerHTML="You have "+minutes+":0"+seconds+" minutes left before you are able to return to the game.";   
+        }
+        else{
+            document.getElementById("timeleft").innerHTML="You have "+minutes+":"+seconds+" minutes left before you are able to return to the game.";
+        }
+        function tryagain(){
+            var list = ["Cute Fluffy Dog","Bird Sings For Woman", "Cat Plays With Yarn", "Puppy In Grass","Neil Degrasse Tyson","Some Soothing Music","Goose With Doggo","Man Sees His Brother For The First Time In Years","My Face?","CLICK THIS AND YOU WILL GO BACK TO CUBESHOOT!!!!!","Hey look! This link is green!","SUB TO PEWDIEPIE!!!!"];
+            var randNumb = Math.floor(Math.random()*list.length);
+            console.log(randNumb);
+            var title = list[randNumb];
+            var link = "https://bit.ly/34OOg9s";
+            if(title=="Neil Degrasse Tyson"){
+                link="https://www.thoughtco.com/thmb/CHmmMJFXmCWoVDVViWM14YrEj60=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1148962018-c1fd4401b8574bbdb9465bd40f3ded29.jpg";
+            }
+            if(title=="Hey look! This link is green!"){
+                document.getElementById("links").innerHTML+="<br><a style='color:green' href='"+link+"'>"+title+" or You Are An Idiot"+"</a>";   
+            }
+            else{
+                document.getElementById("links").innerHTML+="<br><a href='"+link+"'>"+title+" or You Are An Idiot"+"</a>";
+            }
+        }
+        setInterval(function(){
+            document.getElementById("dots").innerHTML+=" .";
+            minutes = Math.floor(timeleft/60);
+            seconds = timeleft-Math.floor(timeleft/60)*60;
+            if(seconds/10<1){
+                document.getElementById("timeleft").innerHTML="You have "+minutes+":0"+seconds+" minutes left before you are able to return to the game.";   
+            }
+            else{
+                document.getElementById("timeleft").innerHTML="You have "+minutes+":"+seconds+" minutes left before you are able to return to the game.";
+            };
+            timeleft--;
+            localStorage.setItem("timeleft",timeleft);
+            if(timeleft==0){
+                window.location.href="index.html";
+            }
+        },1000);
+    </script>
+</body>

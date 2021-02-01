@@ -1,0 +1,445 @@
+<html>
+    <head>
+        <link rel="icon" href="icons/cubelogo.png" type="image/png"/>
+        <link rel="shortcut icon" href="icons/cubelogo.png" type="image/png"/> 
+        <link href="style/general.css" rel="stylesheet" type="text/css">
+		<link href="style/profile.css" rel="stylesheet" type="text/css">
+		<link href="style/shop.css" rel="stylesheet" type="text/css">
+		<link href="style/about.css" rel="stylesheet" type="text/css">
+		<link href="style/animations.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<meta name="description" content="Destroy Squares To Earn Points!">
+		<meta name="keywords" content="cubeshoot, cube, shoot, game, square, points, polygon, shape, javascript">
+        <title>Cube Shoot</title>
+    </head>
+    <body>
+        <div id="darkener" class="fadein"></div>
+        <canvas id="linescreen" class="fadein"></canvas>
+        <div id="squarescollection" class="slideinright">
+            <div class="pagetitle"><button class="previous" onclick="pagetoggle('squarescollection',1)">Previous</button><button class="next" onclick="pagetoggle('squarescollection',0)">Next</button><h1>Squares</h1><span class="close" onclick="hidesquares()">×</span></div>
+            <div class="page">
+                <div id="puncher" class="infobox">
+                    <h2>Puncher</h2>
+                    <div class="squaredisplay"><div style="background-color: rgb(212, 0, 0)" class="innersquare"></div></div>
+                    <div class="stats">
+						<div class="statbracket"><h3>Health: 3</h3><h3>Color: Red</h3></div>
+						<div class="statbracket"><h3>Requirement: None</h3><h3>Speed: 1</h3></div>
+						<div class="statbracket"><h3>Size: 25</h3><h3>Damage: 1</h3></div>
+                   		<h3>Frequency: Remainder</h3>
+                        <div class="descriptionBox">
+                            <h3>Follows the player to deal damage.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="gunner" class="infobox">
+                    <h2>Gunner</h2>
+                    <div class="squaredisplay"><div class="innersquare" style="background-color: pink"></div></div>
+                    <div class="stats">
+						<div class="statbracket"><h3>Health: 1</h3><h3>Color: Pink</h3></div>
+						<div class="statbracket"><h3>Requirement: 10</h3><h3>Speed: 1</h3></div>
+						<div class="statbracket"><h3>Size: 25</h3><h3>Damage: 1</h3></div>
+						<h3>Frequency: 15%</h3>
+                        <div class="descriptionBox">
+                            <h3>Follows player from a distance and shoots at it.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="tank" class="infobox">
+                    <h2>Tank</h2>
+                    <div class="squaredisplay"><div style="background-color: rgb(166, 99, 107)" class="innersquare"></div></div>
+                    <div class="stats">
+						<div class="statbracket"><h3>Health: 50</h3><h3>Color: Reddish Gray</h3></div>
+						<div class="statbracket"><h3>Requirement: 30</h3><h3>Speed: 1</h3></div>
+						<div class="statbracket"><h3>Size: 40</h3><h3>Damage: 1</h3></div>
+						<h3>Frequency: 5%</h3>
+                        <div class="descriptionBox">
+                            <h3>Follows the player to deal damage. Stops piercing bullets.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div id="bomber" class="infobox">
+                    <h2>Bomber</h2>
+                    <div class="squaredisplay"><div style="background-color: #DC143C" class="innersquare"></div></div>
+                    <div class="stats">
+						<div class="statbracket"><h3>Health: 5</h3><h3>Color: Flashing Crimson and White</h3></div>
+						<div class="statbracket"><h3>Requirement: 20</h3><h3>Speed: 2</h3></div>
+						<div class="statbracket"><h3>Size: 30</h3><h3>Damage: 3</h3></div>
+						<h3>Frequency: 10%</h3>
+                        <div class="descriptionBox">
+                            <h3>Explodes on contact with player or death. Explosion damages all.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="hearty" class="infobox">
+                    <h2>Hearty</h2>
+                    <div class="squaredisplay"><div style="background-color: orange" class="innersquare"></div></div>
+                    <div class="stats">
+						<div class="statbracket"><h3>Health: 3</h3><h3>Color: Orange</h3></div>
+						<div class="statbracket"><h3>Requirement: 35</h3><h3>Speed: 1</h3></div>
+						<div class="statbracket"><h3>Size: 25</h3><h3>Damage: 2</h3></div>
+						<h3>Frequency: 5%</h3>
+                        <div class="descriptionBox">
+                            <h3>Heals 1 health on kill.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="thief" class="infobox">
+                    <h2>Thief</h2>
+                    <div class="squaredisplay"><div style="background-color: #FF7F50" class="innersquare"></div></div>
+                    <div class="stats">
+						<div class="statbracket"><h3>Health: 1</h3><h3>Color: Coral</h3></div>
+						<div class="statbracket"><h3>Requirement: 15</h3><h3>Speed: 1</h3></div>
+						<div class="statbracket"><h3>Size: 20</h3><h3>Damage: 1</h3></div>
+						<h3>Frequency: 5%</h3>
+                        <div class="descriptionBox">
+                            <h3>Goes to and eats nearest power-up. Gains +1 health and +1 damage for each power-up eaten.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="powerupcollection" class="slideinright">
+            <div class="pagetitle"><button class="previous" onclick="pagetoggle('powerupcollection',1)">Previous</button><button class="next" onclick="pagetoggle('powerupcollection',0)">Next</button><h1>Power-ups</h1><span class="close" onclick="hidepowerups()">×</span></div>
+            <div class="page">
+                <div id="machinegun" class="infobox gundisplay">
+                    <h2>Rapid Gun</h2>
+                    <div class="squaredisplay"><div style="background-color: yellow" class="innersquare"></div><img src="icons/rapidgun.png" class="innersquare"></div>
+                    <div class="stats">
+                        <h3>Spawn Rate: Random</h3>
+                        <h3>Color: Yellow</h3>
+                        <h3>Type: Gun Upgrade</h3>
+                        <h3>1 Damage Per Bullet</h3>
+                        <h3>Ammo Consumed: 1 Per 10 Bullets</h3>
+                        <div class="descriptionBox">
+                            <h3>Rapidly fires when spacebar is held down. Deals half damage to tanks.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="piercegun" class="infobox gundisplay">
+                    <h2>Piercing Gun</h2>
+                    <div class="squaredisplay"><div style="background-color: blue" class="innersquare"></div><img src="icons/piercegun.png" class="innersquare"></div>
+                    <div class="stats">
+                        <h3>Spawn Rate: Per 15 Kills</h3>
+                        <h3>Color: Blue</h3>
+                        <h3>Type: Gun Upgrade</h3>
+                        <h3>∞ Damage Per Bullet</h3>
+                        <h3>Ammo Consumed: 3</h3>
+                        <div class="descriptionBox">
+                            <h3>Fire rate is decreased. Bullets are stopped by tanks.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="shotgun" class="infobox gundisplay">
+                    <h2>Shotgun</h2>
+                    <div class="squaredisplay"><div style="background-color: #ff0066" class="innersquare"></div><img src="icons/shotgun.png" class="innersquare"></div>
+                    <div class="stats">
+                        <h3>Spawn Rate: Random</h3>
+                        <h3>Color: Magenta</h3>
+                        <h3>Type: Gun Upgrade</h3>
+                        <h3>3 Damage Per Bullet</h3>
+                        <h3>Ammo Consumed: 2</h3>
+                        <div class="descriptionBox">
+                            <h3>Emits 5 spread out bullets on fire.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div id="teleport" class="infobox effectdisplay">
+                    <h2>Teleport Dot</h2>
+                    <div class="squaredisplay">
+                        <div style="background-color: green" class="innersquare"></div>
+                    </div>
+                    <div class="stats">
+                        <h3>Spawn Rate: Random</h3>
+                        <h3>Color: Green</h3>
+                        <h3>Type: Effect</h3>
+                        <div class="descriptionBox">
+                            <h3>Teleports player to other dot.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="glitch" class="infobox effectdisplay">
+                    <h2>Glitch Blast</h2>
+                    <div class="squaredisplay">
+                        <div style="background-color: #008B8B" class="innersquare"></div>>
+                    </div>
+                    <div class="stats">
+                        <h3>Spawn Rate: Random</h3>
+                        <h3>Color: Teal</h3>
+                        <h3>Type: Effect</h3>
+                        <div class="descriptionBox">
+                            <h3>Converts all enemy squares in a 150 radius into ally squares.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="missile" class="infobox gundisplay">
+                    <h2>Missile Launcher</h2>
+                    <div class="squaredisplay">
+                        <img src="icons/rocketpowerup.png" class="innersquare">
+						<img src="icons/rocket.png" class="innersquare">
+                    </div>
+                    <div class="stats">
+                        <h3>Spawn Rate: Random</h3>
+                        <h3>Color: Purple</h3>
+                        <h3>Type: Gun Upgrade</h3>
+                        <h3>5 Damage Per Missile</h3>
+                        <h3>Ammo Consumed: 1</h3>
+                        <div class="descriptionBox">
+                            <h3>Shoots 2 homing missiles that explode on impact. Ignites Bombers.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="achievementget">
+            <img><h2>Achievement Get!</h2><h3>Achievement</h3>
+        </div>
+        <div id="profilepage">
+            <h1 id="edit" onclick="showprofileedit()">✎</h1>
+            <div id="inputprofile">
+                <h3><label for="profilpictureinput">Choose a profile picture:</label></h3>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="profilepictureinput">
+                <h3>Choose a name:</h3>
+                <input id="profilenameinput">
+                <br>
+                <button onclick="setprofile()">Submit</button>
+            </div>
+            <div class="pagetitle"><h1>Profile</h1><span class="close" onclick="hide('profilepage','slideintop','slideouttop')">×</span></div>
+            <div id="playercontainer">
+            <div id="playerstats">
+                <img id="profilepicture" src="icons/profilepicture.png">
+                <br><br>
+                <h1 id="name">Player Name</h1>
+                <div class="playerstatbox">
+                    <div class="statbracket"><h2>Total Coins Collected</h2><h2 id="totalcoins">0</h2></div>
+                    <div class="statbracket"><h2>Deaths</h2><h2 id="deaths">0</h2></div>
+                    <div class="statbracket"><h2>High Score</h2><h2 id="highscore">0</h2></div>
+                    <div class="statbracket"><h2>Power-ups Collected</h2><h2 id="powerupscollected">0</h2></div>
+                    <div class="statbracket"><h2>Perks Bought</h2><h2 id="perkcount">0</h2></div>
+                    <div class="statbracket"><h2>Punchers Killed</h2><h2 id="puncherskilled">0</h2></div>
+                    <div class="statbracket"><h2>Gunners Killed</h2><h2 id="gunnerskilled">0</h2></div>
+                    <div class="statbracket"><h2>Tanks Killed</h2><h2 id="tankskilled">0</h2></div>
+                    <div class="statbracket"><h2>Bombers Killed</h2><h2 id="bomberskilled">0</h2></div>
+                    <div class="statbracket"><h2>Thieves Killed</h2><h2 id="thieveskilled">0</h2></div>
+                    <div class="statbracket"><h2>Hearty Squares Killed</h2><h2 id="heartykilled">0</h2></div>
+                </div>
+            </div>
+            </div>
+            <div id="achievements">
+                <h1>Achievements</h1>
+                <div class="playerstatbox">
+                    <div class="achievement" id="curveshot">
+                        <img src="icons/curveshot.png">
+                        <h3>Curve Shot</h3>
+                        <p>Shoot a gunner square with only a pistol.</p>
+                    </div>
+                    <div class="achievement" id="tankkiller">
+                        <img src="icons/tankkiller.png">
+                        <h3>Tank Killer I</h3>
+                        <p>Kill 5 tank squares.</p>
+                        <h4>0/5</h4>
+                    </div>
+                    <div class="achievement" id="bombdefuser">
+                        <img src="icons/bombdefuser.png">
+                        <h3>Bomb Defuser I</h3>
+                        <p>Kill 5 bomber squares.</p>
+                        <h4>0/5</h4>
+                    </div>
+                    <div class="achievement" id="madlad">
+                        <img src="icons/madlad.png">
+                        <h3>ÄBSÖLÜTE MÄDLÄD!</h3>
+                        <p>Get 100 points with no power-ups.</p>
+                    </div>
+                    <div class="achievement" id="healthiboi">
+                        <img src="icons/heart.png">
+                        <h3>Healthi Boi</h3>
+                        <p>Get to 20 health.</p>
+                    </div>
+                    <div class="achievement" id="mob">
+                        <img src="icons/mob.png">
+                        <h3>The Mob Is After Me!</h3>
+                        <p>Have 100 or more enemy squares on the field.</p>
+                    </div>
+                    <div class="achievement" id="flex">
+                        <img src="icons/rich.png">
+                        <h3>Flex I</h3>
+                        <p>Collect 100 coins in total.</p>
+                        <h4>0/100</h4>
+                    </div>
+                    <div class="achievement" id="squareslayer">
+                        <img src="icons/squareslayer.png">
+                        <h3>no u</h3>
+                        <p>Slay the Square Slayer.</p>
+                    </div>
+                    <div class="achievement" id="playoutside">
+                        <img src="icons/playoutside.png">
+                        <h3>Go Play Outside Now!</h3>
+                        <p>Spend 15 minutes consecutively on the game.</p>
+                    </div>
+                    <div class="achievement" id="hackerman">
+                        <img src="icons/hacker.png">
+                        <h3>Hacker Man</h3>
+                        <p>You must hack this achievement to get it.<p/>
+                    </div>
+                    <div class="achievement" id="nice">
+                        <img src="icons/nice.png">
+                        <h3>Nice</h3>
+                        <p>Get 420 in score and 69% in accuracy.</p>
+                    </div>
+                    <!--
+                    <div class="achievement"><img><h3>2d > 3d</h3><p>Defeat the True Cube boss.</p></div>
+					<div class="achievement"><img><h3>Curved Chaos</h3><p>Defeat The Circle.</p></div>
+					-->
+					<div class="achievement">
+						<img src="icons/aidensmonstrosity.png">
+						<h3>Collector of Trust Tax</h3>
+						<p>Defeat Aiden's Monstrosity.</p>
+					</div>
+					<div class="achievement">
+						<img src="icons/benshorror.png">
+						<h3>An "Easy" Task</h3>
+						<p>Defeat Benjamin's Horror.</p>
+					</div>
+                </div>
+            </div>
+        </div>
+        <div id="rules">
+            <span class="close" onclick="hiderules()">×</span>
+            <h2>How to Play</h2>
+            <h3><strong>1. </strong>Arrow keys to move.</h3>
+            <h3><strong>2. </strong>WASD keys to change gun direction.</h3>
+            <h3><strong>3. </strong>Space to shoot.</h3>
+            <h3><strong>4. </strong>Kill red squares for points.</h3>
+            <h3><strong>5. </strong>Every certain amount of squares killed, others will appear. 
+            <button onclick="viewsquares()"><h4>View Squares</h4></button></h3>
+            <h3><strong>6. </strong>Collect power-ups to get different guns and effects. 
+            <button onclick="viewpowerups()"><h4>View Power-ups</h4></button></h3>
+        </div>
+        <div id="restartbox">
+            <h2><strong>Game Over!</strong></h2>
+            <h3 id="deathmessage"></h3>
+            <h3 id="accuracy"></h3>
+            <h3>Try Again?</h3>
+            <button id="yesbutton" onclick="restartgame('yes')">Yes</button>
+            <button id="nobutton" onclick="restartgame('no')">No</button>
+			<button id="revivebutton" onclick="restartgame('revive')" class="locked"><span id="gamerevivecost">n/a Coins</span> Revive</button>
+        </div>
+        <div id="old" onclick="gotoold()"><h1>Old Version</h1></div>
+        <div id="profile" class="option topoption" onclick="view('profilepage','slideintop','slideouttop')"><h1>Profile</h1></div>
+        <h2 id="gamemsg"> </h2>
+        <div id="banner" class="fadein"><h1>CUBESHOOT</h1><img src="icons/cubelogo.png"></div>
+		<div class="shinecontainer" onclick="coinclick()"><div id="coinclicker" class="fadein"><img src="icons/bank.png"><h1>Manual </h1><h1>Coin</h1><h1> Clicker</h1></div><div class="shine"></div></div>
+        <div class="option bottomoption" id="sound" onclick="togglesound()"><h1>Sound</h1></div>
+        <div class="option bottomoption" id="howto" onclick="showrules()"><h1>How To Play</h1></div>
+        <button id="play" class="fadein" onclick="playstartup()">PLAY</button>
+        <div class="option bottomoption" id="about" onclick="view('aboutpage','slideintop','slideouttop')"><h1>About The Creator</h1></div>
+        <div class="option bottomoption" id="shop" onclick="view('shoppage','slideinright','slideoutright')"><h1>Shop</h1></div>
+		<div id="shoppage" class="slideinright">
+			<div class="pagetitle"><h1>Shop</h1><span class="close" onclick="hide('shoppage','slideinright','slideoutright')">×</span></div>
+			<div id="baseStats" class="shopsection">
+				<h1 class="perkheader">Base Stats</h1>
+				<h2 id="startinghealth">Health: </h2>
+				<h2 id="startingammo">Ammo: </h2>
+				<h2 id="coins">Coins: </h2>
+				<h2 id="revivecost">Cost For Revive: n/a Coins</h2>
+			</div>
+			<div id="gamePerks" class="shopsection">
+				<h1 class="perkheader">Game Perks</h1>
+				<div class="shopitem" id="healthbonus" onclick="purchaseitem('healthbonus')">
+					<img src="icons/heart.png">
+					<h2>Health Bonus <span class="purchaseCompletion">0</span><span class='slash'>/</span><span class="maxCompletion">5</span></h2><h3 class="cost">300 coins</h3>
+					<h3>Start with +1 health.</h3>
+				</div>
+				<div class="shopitem" id="bulletbox" onclick="purchaseitem('bulletbox')">
+					<img src="icons/bulletbox.png">
+					<h2>Bullet Box <span class="purchaseCompletion">0</span><span class='slash'>/</span><span class="maxCompletion">10</span></h2><h3 class="cost">100 coins</h3>
+					<h3>Start with +1 ammo.</h3>
+				</div>
+				<div class="shopitem" id="revivebonus" onclick="purchaseitem('revivebonus')">
+					<img src="icons/health.png">
+					<h2>Revive <span class="purchaseCompletion">0</span><span class='slash'>/</span><span class="maxCompletion">3</span></h2><h3 class="cost">200 coins</h3>
+					<h3>Allows you to be revived for 200 coins.</h3>
+				</div>
+				<div class="shopitem" id="escapee" onclick="purchaseitem('escapee')">
+					<img src="icons/escapee.png">
+					<h2>Escapee <span class="purchaseCompletion">0</span><span class='slash'>/</span><span class="maxCompletion">30</span></h2><h3 class="cost">50 coins</h3>
+					<h3>Decreases time of suspension by 10 seconds.</h3>
+				</div>
+				<div class="shopitem" id="surplus" onclick="purchaseitem('surplus')">
+					<img src="icons/surplus.png">
+					<h2>Surplus</h2><h3 class="cost">5,000 coins</h3>
+					<h3>Hearty Squares spawn 10% of the time.</h3>
+				</div>
+				<div class="shopitem" id="fastestgun" onclick="purchaseitem('fastestgun')">
+					<img src="icons/fastestgun.png">
+					<h2>Fastest Gun In The West</h2><h3 class="cost">500 coins</h3>
+					<h3>Pistol reload time is halfed.</h3>
+				</div>
+				<div class="shopitem" id="ragemode" onclick="purchaseitem('ragemode')">
+					<img src="icons/ragemode.png">
+					<h2>Rage Mode</h2><h3 class="cost">200 coins</h3>
+					<h3>If under half health, deal 2x damage per bullet.</h3>
+				</div>
+				<div class="shopitem" id="enemyammo">
+					<img src="icons/salvager.png">
+					<h2>Salvager 0/3</h2><h3 class="cost">200 coins</h3>
+					<h3>10% chance to get ammo on kill.</h3>
+				</div>
+				<div class="shopitem" id="elitedestroyer">
+					<img src="icons/elitedestroyer.png">
+					<h2>Elite Destroyer 0/5</h2><h3 class="cost">500 coins</h3>
+					<h3>Deal 5% more damage to bosses.</h3>
+				</div>
+			</div>
+			<div id="questionitems" class="shopsection">
+				<h1 class="perkheader">Questionable Items</h1>
+				<div class="shopitem" id="how" onclick="purchaseitem('how')">
+					<img src="icons/how.png">
+					<h2>How Will You Get This?</h2><h3 class="cost">coins</h3>
+					<h3>Dash through enemies without damage by double tapping WASD.</h3>
+				</div>
+				<div class="shopitem" id="coinclickeritem" onclick="purchaseitem('coinclickeritem')">
+					<img src="icons/bank.png">
+					<h2>Why Would You Get This?</h2><h3 class="cost">100,000 coins</h3>
+					<h3>Lets you farm 1 coin when you click a button on the home page.</h3>
+				</div>
+				<div class="shopitem" id="where">
+					<img src="icons/where.png">
+					<h2>Where Will You Get This?</h2><h3 class="cost">n/a coins</h3>
+					<h3>You can't get this item in this shop. Search somewhere else.</h3>
+				</div>
+				<div class="shopitem" id="when">
+					<img src="icons/rewind.png">
+					<h2>When Will You Get This?</h2><h3 class="cost">n/a coins</h3>
+					<h3>Rewind the game 3 seconds at the cost of all your ammo when R is pressed.</h3>
+				</div>
+				<div class="shopitem" id="what">
+					<img src="icons/clone.png">
+					<h2>What Is This?</h2><h3 class="cost">2 Horrible Souls</h3>
+					<h3>Spawn with 2 indestructible clones to fight for you.</h3>
+				</div>
+			</div>
+		</div>
+        <div id="aboutpage" class="slideintop">
+            <div class="pagetitle"><h1>About</h1><span class="close" onclick="hide('aboutpage','slideintop','slideouttop')">×</span></div>
+            <img src="icons/hacker.png">
+            <p><strong>My name is Bob Henry. </strong><b>I have a strong interest in programming and developing games with them. So far, I've been coding for around 4 years. Over this lengthy time, I have made quite a few projects and games. Some are better than others. The best ones are those that I don't really plan to finish such as the one you are observing now. I do have other hobbies such as playing the piano and learning mathematics.</b></p>
+            <div id="links">
+                <a href="https://drawthemonalisa.netlify.com"><img src="icons/monalisa.png"></a>
+                <a href="https://canvaspong.netlify.com"><img src="icons/pong.png"></a>
+                <a href="https://timerthattooktoolongtomake.netlify.com"><img src="icons/timer.png"></a>
+                <a href="https://cakemaker.netlify.com"><img src="icons/cake.png"></a>
+            </div>
+        </div>
+        <canvas id="gamescreen"></canvas>
+    </body>
+	<script src="scripts/gameobjects.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/sitehandling.js"></script>
+</html>
+
