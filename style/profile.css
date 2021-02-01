@@ -1,0 +1,168 @@
+#achievementget{
+    z-index: 5;
+    right: 2vw;
+    top: 2vw;
+    display: none;
+    background-color: #1C293B;
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    text-align: left;
+    padding: 25px;
+    padding-right: 35px;
+    box-shadow: 2px 2px 5px black;
+}
+#achievementget h2{
+    float: right;
+    position: relative;
+    left: 10px;
+}
+#achievementget h3{
+    color: gainsboro;
+    position: relative;
+    left: 10px;
+}
+#achievements{
+    color: white;
+    width: calc(50% - 40px);
+    height: calc(100% - 99px);
+    background-color: #50514F;
+    float: right;
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.playerstatbox{
+    margin-top: 20px;
+    text-align: left;
+    border-radius: 15px;
+    background-color: gainsboro;
+    box-shadow: inset 0px 0px 20px black;
+    padding: 20px;
+}
+.achievement{
+    background-color: darkgray;
+    padding: 10px;
+    margin: 10px;
+    filter: grayscale();
+    height: calc(4em + 5px);
+}
+.achievement h4{
+    float: right;
+}
+.achievement img, #achievementget img{
+    display: inline;
+    float: left;
+    width: 4em;
+    height: 4em;
+    border: 3px solid lightgray;
+}
+.achievement h3, .achievement p{
+    position: relative;
+    left: 10px;
+}
+.complete1{
+    background-color: #ed8d2d;
+    color: black;
+    filter: none;
+}
+.complete2{
+    background-color: #ffdd00;
+    color: black;
+    filter: none;
+}
+.complete3{
+	background-color: greenyellow;
+    color: black;
+    filter: none;
+}
+.completeFull{
+    background-color: #15a345;
+    color: white;
+    filter: none;
+}
+.completeFull h3::after{
+    content: " Complete";
+    animation: 3s color-change infinite;
+}
+#inputprofile{
+    background-color: #597374;
+    color: white;
+    display: none;
+    padding: 20px;
+    position: absolute;
+    z-index: 1;
+    text-align: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.7);
+    margin-left: calc(1em + 44px);
+    margin-top: 3.65em;
+}
+#inputprofile h3, #inputprofile input{
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+#inputprofile input{
+    font-size: 1.1em;
+}
+#inputprofile button{
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#playercontainer{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    direction: rtl;
+    float: left;
+    width: 50%;
+    height: calc(100% - 59px);
+}
+#playerstats{
+    padding: 40px;
+    position: relative;
+    background-color: #F8E9E9;
+    box-shadow: inset 0px -10px 40px 1px rgba(0,0,0,0.75);
+}
+.statbracket h2, .statbracket h3{
+    display: inline-block;
+}
+.statbracket h2:last-child, .statbracket h3:last-child{
+    float: right;
+}
+#profilepicture{
+    border-radius: 50%;
+    width: 40vh;
+    height: 40vh;
+    object-fit: cover;
+}
+#profilepage .pagetitle{
+    background-color: #FFC145;
+}
+#edit{
+    background-color: darkcyan;
+    position: absolute;
+    color: white;
+    z-index: 2;
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: 12px;
+    margin-top: 1.825em;
+    transition: 0.5s all;
+}
+#edit:hover{
+    color: dimgray;
+    cursor: pointer;
+}
+#profilepage{
+    overflow: auto;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    top: 0;
+    position: absolute;
+}

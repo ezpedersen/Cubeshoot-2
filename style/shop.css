@@ -1,0 +1,291 @@
+#shoppage{
+	overflow: auto;
+	background-color: aliceblue;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+}
+#shoppage .pagetitle{
+	background-color: #79B473;
+}
+#squarescollection{
+    display: none;
+    z-index: 5;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    transition: all 1s;
+}
+.pagetitle{
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 20px black;  
+    position: relative;
+}
+#powerupcollection{
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5;
+    background-color: white;
+    position: absolute;
+    transition: all 1s;
+}
+#squarescollection .pagetitle{
+    background-color: rgb(150, 21, 77);  
+}
+#powerupcollection .pagetitle{
+    background-color: #1D3557;
+}
+#powerupcollection h2, #squarescollection h2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#machinegun{
+    float: left;
+    height: 100%;
+    background-color: #72B01D;
+    width: calc(100%  / 3);
+    box-shadow: inset 0px 0px 30px 6px rgba(0,0,0,0.8);
+}
+#machinegun h2{
+    box-shadow: 0px 0px 40px -1px black;
+    background-color: #3E363F;
+    color: white;
+}
+#piercegun{
+    float: left;
+    height: 100%;
+    width: calc(100%  / 3);
+    background-color: #438CAB;
+    z-index: 2;
+    position: relative;
+}
+#piercegun h2{
+    background-color: #FA7921;
+}
+#shotgun{
+    float: left;
+    height: 100%;
+    width: calc(100%  /3);
+    background-color: #FFD8DF;
+    box-shadow: inset 0px 0px 30px 5px black;
+}
+#shotgun h2{
+    box-shadow: 0px 0px 40px -1px black;
+    background-color: #eb0c65;
+}
+.infobox{
+    float: left;
+    height: 100%;
+    width: calc(100%  /3);
+}
+#puncher{
+    background-color: #45A1BF;
+    color: white;
+}
+#puncher h2{
+    background-color: #001829;
+    position: relative;
+}
+#gunner h2{
+    box-shadow: 0px 20px 20px -10px black;
+    color: black;
+    background-color: #D90368;
+}
+#gunner{
+    box-shadow: inset 0 0 25px 5px black;
+    color: white;
+    display: inline-block;
+    background-color: #463239;
+}
+.stats{
+    text-align: left;
+    padding: 20px;
+}
+#hearty{
+    background-color: #FCBF49;
+}
+#hearty h2{
+    background-color: #F77F00;
+    position: relative;
+}
+#bomber h2{
+    background-color: #634952;
+    color: white;
+    box-shadow: 0px 0px 40px -1px black;
+}
+#bomber{
+    background-color: #8499B1;
+    box-shadow: inset 0px 0px 30px 6px rgba(0,0,0,0.8);
+}
+#thief{
+    background-color: #34252F;
+    color: white;
+    box-shadow: inset 0px 0px 30px 5px black;
+}
+#thief h2{
+    color: black;
+    background-color: #519872;
+    box-shadow: 0px 0px 40px -1px black;
+}
+#tank{
+    background-color: #FB8B24;
+}
+#tank h2{
+    background-color: #2A2735;
+    color: white;
+    position: relative;
+}
+#teleport{
+    background-color: #72B01D;
+}
+#teleport h2{
+    background-color: #893168;
+    color: white;
+    position: relative;
+}
+#glitch{
+    background-color: #323434;
+    color: white;
+    box-shadow: inset 0px 0px 32px 15px black;
+}
+#glitch h2{
+    color: black;
+    background-color: #E2E2E2;
+    box-shadow: 0px 15px 32px 0px rgba(0,0,0,0.75);
+}
+.squaredisplay{
+    height: 16vw;
+    width: 16vw;
+    background-color: gainsboro;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: inset 0px 0px 20px black;
+    border-radius: 15px;
+}
+.gundisplay .squaredisplay{
+    width: 25vw;
+}
+.gundisplay .innersquare{
+    float: left;
+    margin-left: 5vw;
+}
+.effectdisplay .squaredisplay{
+    height: 16vw;
+    width: 16vw;
+}
+#missile{
+    background-color: #A8DADC;
+}
+#missile h2{
+    background-color: #BD2F3A;
+    position: relative;
+}
+.innersquare{
+    width: 5vw; 
+    height: 5vw;
+    box-shadow: 0px 0px 10px black;
+    margin: auto;
+    transform: translate(0, 5.5vw);  
+    image-rendering: optimizeSpeed;             
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;            
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated; 
+    image-rendering: optimize-contrast; 
+}
+#basestats{
+	width: 30%;
+	overflow: auto;
+	float: right;
+}
+#basestats h2{
+	margin: 10px;
+}
+#basestats .perkheader{
+	background-color: palevioletred;
+}
+#gameperks{
+	width: 40%;
+	float: left;
+}
+#questionitems{
+	width: 45%;
+	float: right;
+}
+#questionitems .perkheader{
+	background-color: coral;
+}
+#gameperks .perkheader{
+	background-color: darkturquoise;
+}
+.shopitem:nth-child(even){
+	background-color: lightgray;
+}
+.shopitem h3:not(.cost){
+	margin-top: 5px;
+}
+.shopitem img{
+	display: inline;
+    float: left;
+    width: 5em;
+    height: 5em;
+    border: 2px solid black;
+	border-radius: 15px;
+	margin-right: 10px;
+	transition: 1s all linear;
+}
+.shopitem{
+	padding: 20px;
+	height: calc(6em - 10px);
+}
+.cost{
+ 	float: right;
+}
+.shopsection{
+	background-color: white;
+	box-shadow: 0px 0px 10px black;
+	margin: 3%;
+	display: block;
+	text-align: left;
+}
+.perkheader{
+	padding: 15px;
+	color: white;
+}
+.shopitem h2{
+	font-size: 1.5em;
+	display: inline;
+}
+#tank .innersquare{
+    transform: translate(0, 4vw);
+    width: 8vw;
+    height: 8vw;
+}
+#thief .innersquare{
+    transform: translate(0, 6vw);
+    width: 4vw;
+    height: 4vw;
+}
+#bomber .innersquare{
+	transform: translate(0, 5vw);
+	width: 6vw;
+	height: 6vw;
+}
+.descriptionbox{
+    padding: 10px;
+    background-color: gainsboro;
+    border-radius: 15px;
+    margin-top: 10px;
+    color: black;
+    height: auto;
+    box-shadow: inset 0px 0px 10px black;
+}
