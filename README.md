@@ -1,2 +1,2 @@
-# Cubeshoot-2
-Cubeshoot with new added features
+# Cubeshoot 2
+Cubeshoot with new added features.
